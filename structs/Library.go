@@ -1,4 +1,4 @@
-package types
+package structs
 
 type Library struct {
 	Id   int    `json:"id"`
