@@ -5,8 +5,9 @@ type Library struct {
 	Name string `json:"name"`
 
 	// Relations
-	Users []User `json:"users"`
-	Books []Book `json:"books"`
+	Users   []User   `json:"users"`
+	Books   []Book   `json:"books"`
+	Borrows []Borrow `json:"borrows"`
 }
 
 func (l *Library) GetName() string {
@@ -27,4 +28,8 @@ func (l *Library) JoinUser(user *User) {
 
 func (l *Library) JoinBook(book *Book) {
 	l.Books = append(l.Books, *book)
+}
+
+func (l *Library) JoinBorrow(b *Borrow) {
+	l.Borrows = append(l.Borrows, *b)
 }

@@ -9,4 +9,5 @@ type ILibrary interface {
 
 	JoinUser(user *structs.User)
 	JoinBook(book *structs.Book)
+	JoinBorrow(borrow *structs.Borrow)
 }
