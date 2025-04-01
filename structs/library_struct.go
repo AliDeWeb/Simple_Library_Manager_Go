@@ -1,5 +1,7 @@
 package structs
 
+import "strings"
+
 type Library struct {
 	Id   int    `json:"id"`
 	Name string `json:"name"`
@@ -32,4 +34,14 @@ func (l *Library) JoinBook(book *Book) {
 
 func (l *Library) JoinBorrow(b *Borrow) {
 	l.Borrows = append(l.Borrows, *b)
+}
+
+func (l *Library) SearchBookByTitle(t string) *Book {
+	for _, book := range l.Books {
+		if title := strings.ToLower(book.Name); title == strings.ToLower(t) {
+			return &book
+		}
+	}
+
+	return nil
 }
